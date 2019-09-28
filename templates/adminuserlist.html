@@ -1,0 +1,71 @@
+{% extends 'adminindex.html' %}
+{% block dash %}
+<h1 class="head-about">User List</h1>
+<div id="topnav2" style="display: inline-flex;">
+  <a href="#" id="link1">Admin</a>
+  <a href="#" id="link2">User</a>
+</div>
+<div id="touchsurface">
+<div id="admin">
+{% for admin in adminlist %}
+<div class="block">
+  <center>
+  <table width="90%" bgcolor="lightgrey">
+    <tr>
+      <td>Name:</td> <td>{{ admin.firstname }} {{ admin.lastname }}</td>
+    </tr>
+    <tr>
+      <td>Username:</td> <td>{{ admin.username }}</td>
+    </tr>
+    <tr>
+      <td>Email:</td> <td>{{ admin.email }}</td>
+    </tr>
+  </table>
+  </center>
+</div>
+{% endfor %}
+</div>
+<div id="user" style="display: none;">
+{% for user in userlist %}
+<div class="block">
+  <center>
+  <table width="90%" bgcolor="lightgrey">
+    <tr>
+      <td>Name:</td> <td>{{ user.firstname }} {{ user.lastname }}</td>
+    </tr>
+    <tr>
+      <td>Username:</td> <td>{{ user.username }}</td>
+    </tr>
+    <tr>
+      <td>Email:</td> <td>{{ user.email }}</td>
+    </tr>
+  </table>
+  <button class="delete-but" onclick="confirmalert('{{user.id}}')"><i class="fa fa-trash-o"></i></button>
+    <div id="{{user.id}}" class="dialog">
+    <div class="message">Do you want to delete?<br><br>
+      <div style="display: inline-flex;">
+      <form action="/admin/UserList" method="POST"> 
+        <button class="yes" type="submit" name="userid" value="{{ user.id }}">Ok</button>
+      </form>
+      <div style="padding-left: 3px; padding-right: 3px;"></div>
+      <a href="#" class="no" onclick="cancel('{{user.id}}')">Cancel</a> 
+      </div>
+    </div>
+    </div>
+  </center> 
+</div>
+{% endfor %}
+</div>
+</div>
+<script>
+  function isright(swipe){
+    if (swipe)
+      mylink1()    
+  }
+  function isleft(swipe){
+    if (swipe)
+      mylink2()    
+  }
+</script>
+{% include 'alert.html' %}
+{% endblock %}

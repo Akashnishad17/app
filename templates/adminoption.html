@@ -1,0 +1,10 @@
+{% extends 'adminindex.html' %}
+{% block dash %}
+<div class="option">
+	<a href="/admin/EditProfile"><i class="fa fa-edit"></i> Edit Profile</a>
+	<a href="/admin/CreateNewEvent"><i class="fa fa-edit"></i> Create New Event</a>
+	<a href="/admin/UserQuery"><i class="fa fa-question-circle"></i> User Query</a>
+	<a href="/admin/ChangePassword"><i class="fa fa-lock"></i> Change Password</a>
+	<a href="/logout" id="link"><i class="fa fa-sign-out"></i> Log out</a>
+</div>
+{% endblock %}

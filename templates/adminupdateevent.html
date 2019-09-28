@@ -1,0 +1,23 @@
+{% extends 'backindex.html' %}
+{% block back %} 
+<form action="/admin/UpdateEvent" method="POST">
+  <h1 class="head-about">Edit Event</h1>
+  <center>
+  <input class="textbox" placeholder="Event Name" type="text" name="eventname" value="{{event.eventname}}" required="required"><br><br>
+  <input class="textbox" type="text" placeholder="Venue" name="venue" value="{{event.venue}}" required="required"><br><br>
+  <input class="textbox" type="text" onfocus="(this.type='date')" name="date" value="{{event.date}}" required="required"><br><br>
+  <input class="textbox" type="text" onfocus="(this.type='time')" name="time" value="{{event.time}}" required="required"><br><br>
+  <input class="textbox" type="text" placeholder="Event Head" name="eventhead" value="{{event.eventhead}}" required="required"><br><br>
+  <label>Certification</label>
+    {% if event.certified|string() == 'Yes' %}
+    <input type="radio" name="certification" value="Yes" checked>Yes
+    <input type="radio" name="certification" value="No">No<br><br><br>
+    {% else %}
+    <input type="radio" name="certification" value="Yes">Yes
+    <input type="radio" name="certification" value="No" checked>No<br><br><br>
+    {% endif %}
+  <center>
+    <input type="submit" value="Save" class="but">
+  </center>
+</form>
+{% endblock %}

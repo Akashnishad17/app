@@ -1,0 +1,62 @@
+{% extends 'adminindex.html' %}
+{% block dash %} 
+<h1 class="head-about">Event List</h1>
+{% for event in admin_eventlist %}
+<div class="block">
+  <center>
+  <img src="{{event.poster}}">
+  <table width="90%" bgcolor="lightgrey">
+    <tr>
+      <td>Name:</td> <td>{{ event.eventname }}</td>
+    </tr>
+    <tr>
+      <td>Venue:</td> <td>{{ event.venue }}</td>
+    </tr>
+      <td>Date & Time:</td> <td>{{ event.date }} {{ event.time }}</td>
+    <tr>
+      <td>Head:</td> <td>{{ event.eventhead }}</td>
+    </tr>
+    <tr>
+      <td>Certified:</td> <td>{{ event.certified }}</td>
+    </tr>
+  </table>
+    <div style="display: inline-flex;">
+        {% if eventpart_list.count(event.id) == 0 %}
+         <div style="color:black; background-color: white;">None</div>
+        {% else %}
+        <form action="/admin/EventList" method="POST">
+          <div class="myUser">
+            <input type="hidden" name="option" value="show"/>
+          </div>
+          <button class="delete-but" type="submit" name="eventid" value="{{ event.id}}">{{ eventpart_list.count(event.id) }} <i class="fa fa-group"></i></button>
+        </form>
+        {% endif %}
+        <div style="padding-right: 5px;"></div>
+        <form action="/admin/EventList" method="POST">
+          <div class="myUser">
+            <input type="hidden" name="option" value="update"/>
+          </div>
+          <button class="delete-but" type="submit" name="eventid" value="{{ event.id }}"><i class="fa fa-edit"></i></button>
+        </form>
+        <div style="padding-right: 5px;"></div>
+        <button class="delete-but" onclick="confirmalert('{{event.id}}')"><i class="fa fa-trash-o"></i></button>
+      </div>
+        <div id="{{event.id}}" class="dialog">
+          <div class="message">Do you want to delete?<br><br>
+          <div style="display: inline-flex;">
+          <form action="/admin/EventList" method="POST">
+            <div class="myUser">
+              <input type="hidden" name="option" value="delete"/>
+            </div> 
+            <button class="yes" type="submit" name="eventid" value="{{ event.id }}">Ok</button>
+          </form>
+          <div style="padding-left: 3px; padding-right: 3px;"></div>
+          <a href="#" class="no" onclick="cancel('{{event.id}}')">Cancel</a> 
+          </div>
+          </div>
+        </div>
+  </center>
+</div>
+{% endfor %}
+{% include 'alert.html' %}
+{% endblock %}

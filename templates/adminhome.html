@@ -1,0 +1,22 @@
+{% extends 'adminindex.html' %}
+{% block dash %} 
+<center>
+ <div class="block">
+    <table width="90%" bgcolor="lightgrey">
+      <tr>
+        <td>Number of Events</td>
+        <td>{{event_count}}</td>
+      </tr>
+      <tr>
+        <td>Number of Users</td>
+        <td>{{user_count}}</td>
+      </tr>
+      <tr>
+        <td>Number of Participations</td>
+        <td>{{userparticipation_count}}</td>
+      </tr>
+    </table>
+  </div>
+</center>
+{% include 'alert.html' %}
+{% endblock %}

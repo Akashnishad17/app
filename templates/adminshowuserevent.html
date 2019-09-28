@@ -1,0 +1,23 @@
+{% extends 'backindex.html' %}
+{% block back %}
+<h1 class="head-about">Participation</h1>
+{% for user in user_list %}
+{% if user.id in userparticipation %}
+<center>
+<div class="block">
+<table width="90%" bgcolor="lightgrey">
+    <tr>
+      <td>Name:</td> <td>{{ user.firstname }} {{ user.lastname }}</td>
+    </tr>
+    <tr>
+      <td>Username:</td> <td>{{ user.username }}</td>
+    </tr>
+    <tr>
+      <td>Email:</td> <td>{{ user.email }}</td>
+    </tr>
+  </table>
+</div>
+</center>
+{% endif %}
+{% endfor %}
+{% endblock %}

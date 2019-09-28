@@ -1,0 +1,13 @@
+{% extends 'backindex.html' %}
+{% block back %}
+ <form action="/user/EditProfile" method="POST">
+      <h1 class="head-about">Edit Profile</h1>
+      <center>
+      <input class="textbox" type="text" name="firstname" value="{{ user.firstname}}" placeholder="First Name" align="center"  maxlength="20" required><br><br>
+      <input class="textbox" type="text" name="lastname" value="{{ user.lastname}}" placeholder="Last Name" align="center"  maxlength="20" required><br><br>
+      <input class="textbox" type="text" name="username" value="{{ user.username}}" placeholder="Username"  maxlength="30" required><br><br>
+      <input class="textbox"type="email" name="email" value="{{ user.email}}" placeholder="Email"  maxlength="30" required><br><br>
+      <button class="but" type="submit">Save</button></center><br>
+</form>
+{% include 'alert.html' %}
+{% endblock %}

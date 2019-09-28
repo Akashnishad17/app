@@ -1,0 +1,18 @@
+{% extends 'userindex.html' %}
+{% block dash %}
+<center>
+  <div class="block">
+    <table width="90%" bgcolor="lightgrey">
+      <tr>
+        <td>Number of Events</td>
+        <td>{{ event_count }}</td>
+      </tr>
+      <tr>
+        <td>Registered Events</td>
+        <td>{{ participation_count }}</td>
+      </tr>
+    </table>
+  </div>
+</center>
+{% include 'alert.html' %}
+{% endblock %}

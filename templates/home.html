@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+{% block content %}
+<center>
+	<div style="padding-top: 250px;"></div>
+	<img src="{{url_for('static', filename='LOGO.jpeg')}}" class="image"/>
+	<div class="loader" style="padding-top: 10px;">
+		<span class="dot"></span>
+		<span class="dot" style="animation-delay: -0.75s"></span>
+		<span class="dot" style="animation-delay: -0.5s"></span>
+		<span class="dot" style="animation-delay: -0.25s"></span>
+	</div>
+</center>
+<script>
+	setTimeout(function(){
+		window.location.replace("/LogIn")},2000);
+</script>
+{% endblock %}

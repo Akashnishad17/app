@@ -1,0 +1,15 @@
+{% extends 'backindex.html' %}
+{% block back %}
+<form action="/ContactUs" method="POST">
+  <h1 class="head-about">Contact Us</h1>
+  <center>
+  <input class="textbox" type="text" name="name" id="name" placeholder="Name" required="required"><br><br>
+  <input class="textbox" type="email" name="email" id="email" placeholder="Email" required="required"><br><br> 
+  <textarea class="textbox" id="query" name="query" placeholder="Query....     (max 300 characters)" rows="5"></textarea><br>
+  <button class="but" name="contact-submit" type="submit">Send</button>
+  <p>Contact us and we'll get back to you within 24 hours.</p>
+  <p>UPES, Dehradun</p>
+  <p>+999999999</p>
+  <p>support@thinkbigdata.co.in</p></center>
+</form> 
+{% endblock %}

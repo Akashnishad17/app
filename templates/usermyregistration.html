@@ -1,0 +1,32 @@
+{% extends 'userindex.html' %}
+{% block dash %}
+<h1 class="head-about">My Registeration</h1>
+{% for event in user_eventlist %}
+  {% if event.id in userparticipation_list %}
+  <center>
+  <div class="block">
+  <table width="90%" bgcolor="lightgrey">
+    <tr>
+      <td>Name:</td> <td>{{ event.eventname }}</td>
+    </tr>
+    <tr>
+      <td>Venue:</td> <td>{{ event.venue }}</td>
+    </tr>
+    <tr>
+      <td>Date & Time:</td> <td>{{ event.date }} {{ event.time }}</td>
+    </tr>
+    <tr>
+      <td>Head:</td> <td>{{ event.eventhead }}</td>
+    </tr>
+    <tr>
+      <td>Certified:</td> <td>{{ event.certified }}</td>
+    </tr>
+  </table>
+  <form action="/user/MyRegistration" method="POST">
+    <button class="delete-but" type="submit" name="eventid" value="{{ event.id }}">Unregister</button>
+  </form>
+  </div>
+</center>
+  {% endif %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block content %}
+<center>
+	<div style="padding-top: 250px;"></div>
+	<h1 class="head-about">Logging in</h1>
+	<div class="loader" style="padding-top: 10px;">
+		<span class="dot"></span>
+		<span class="dot" style="animation-delay: -0.75s"></span>
+		<span class="dot" style="animation-delay: -0.5s"></span>
+		<span class="dot" style="animation-delay: -0.25s"></span>
+	</div>
+</center>
+{% if role == 'user' %}
+<script>
+	setTimeout(function(){
+		window.location.replace("/user/")},2000);
+</script>
+{% endif %}
+{% if role == 'admin' %}
+<script>
+	setTimeout(function(){
+		window.location.replace("/admin/")},2000);
+</script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'backindex.html' %}
+{% block back %}
+{% include 'alert.html' %}
+<form action="/admin/CreateNewEvent" method="POST" enctype="multipart/form-data">
+  <h1 class="head-about">Create An Event</h1>
+  <center>
+  <input class="textbox" placeholder="Event Name" type="text" name="eventname" required="required"><br><br>
+  <input class="textbox" type="text" placeholder="Venue" name="venue" required="required"><br><br>
+  <input class="textbox" type="text"  name="date" placeholder="Date" onfocus="(this.type='date')" required="required"><br><br>
+  <input class="textbox" type="text"  name="time" placeholder="Time" onfocus="(this.type='time')" required="required"><br><br>
+  <input class="textbox" type="text" placeholder="Event Head" name="eventhead" required="required"><br><br>
+  Upload Poster
+  <input class="textbox" type="file" placeholder="Poster" name="poster"><br><br>
+  <label>Certification</label>
+    <input type="radio" name="certification" value="Yes">Yes
+    <input type="radio" name="certification" value="No">No<br><br><br>
+    <input type="submit" value="Create" class="but">
+  </center>
+</form>
+{% endblock %}

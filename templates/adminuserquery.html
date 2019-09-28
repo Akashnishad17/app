@@ -1,0 +1,33 @@
+{% extends 'backindex.html' %}
+{% block back %}
+<h1 class="head-about">User Query</h1>
+{% for userquery in admin_userquery %}
+<center>
+  <div class="block">
+  <table width="90%" bgcolor="lightgrey">
+    <tr>
+      <td>Name:</td> <td>{{ userquery.name }}</td>
+    </tr>
+    <tr>
+      <td>Email:</td> <td>{{ userquery.email }}</td>
+    </tr>
+    <tr>
+      <td>Query:</td> <td>{{ userquery.query }}</td>
+    </tr>
+  </table>
+    <button class="delete-but" onclick="confirmalert('{{userquery.id}}')"><i class="fa fa-trash-o"></i></button>
+    <div id="{{userquery.id}}" class="dialog">
+      <div class="message">Do you want to delete?<br><br>
+      <div style="display: inline-flex;">
+      <form action="/admin/UserQuery" method="POST"> 
+        <button class="yes" type="submit" name="userqueryid" value="{{ userquery.id }}">Ok</button>
+      </form>
+      <div style="padding-left: 3px; padding-right: 3px;"></div>
+      <a href="#" class="no" onclick="cancel('{{userquery.id}}')">Cancel</a> 
+      </div>
+      </div>
+    </div>
+  </div>
+</center>
+{% endfor %} 
+{% endblock %}   
