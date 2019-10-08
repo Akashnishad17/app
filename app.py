@@ -18,7 +18,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = 'testingthinkbigdata@gmail.com'
-app.config['MAIL_PASSWORD'] = 'testing@123'
+app.config['MAIL_PASSWORD'] = ''
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_DEFAULT_SENDER'] = 'testingthinkbigdata@gmail.com'
@@ -35,7 +35,7 @@ login_manager.login_message = "You need to login first."
 login_manager.init_app(app)
 Mobility(app)
 
-s = URLSafeTimedSerializer('Thisisasecretkey!') 
+s = URLSafeTimedSerializer('') 
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
