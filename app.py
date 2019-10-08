@@ -23,7 +23,7 @@ app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_DEFAULT_SENDER'] = 'testingthinkbigdata@gmail.com'
 
-app.config['SECRET_KEY'] = b'\xac\xc2\x1d\xfeDM\xa4\x91\x83\xbe\xd2\x9f\xf3\xe6C\xaf'
+app.config['SECRET_KEY'] = b''
 
 mail = Mail(app)
 bcrypt = Bcrypt(app)
